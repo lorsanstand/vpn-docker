@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  cats-vpn:
+    build: .
+    container_name: cats-vpn
+    restart: unless-stopped
+    ports:
+      - "10808:10808" # SOCKS5
+      - "10809:10809" # HTTP
+    environment:
+      - CONFIG_URL=url-vpn
+      - TZ=Europe/Moscow
